@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CitiesServer</name>
+    </assembly>
+    <members>
+        <member name="M:CitiesServer.Controllers.CitiesController.Get">
+            <summary>
+            Get list of all cities
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
