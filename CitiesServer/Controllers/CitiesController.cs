@@ -1,5 +1,5 @@
 ﻿using CitiesServer.Data;
-using CitiesServer.Models;
+using CitiesData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

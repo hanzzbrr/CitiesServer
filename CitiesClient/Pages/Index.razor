@@ -1,0 +1,46 @@
+﻿@page "/"
+@using CitiesData;
+@using CitiesClient.Services;
+@inject ICitiesService _citiesService;
+@code
+{
+    private IEnumerable<City> Data = null;
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        Data = await _citiesService.GetCities();
+    }
+}
+
+<h3>Cities Details</h3>
+@if (Data == null)
+{
+    <div></div>
+}
+else
+{
+    @if (Data.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>City name</th>
+                    <th>City foundation date</th>
+                    <th>City population</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Data)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Name</td>
+                        <td>@item.FoundationDate</td>
+                        <td>@item.Population</td>                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

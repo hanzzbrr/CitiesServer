@@ -1,4 +1,4 @@
-﻿using CitiesServer.Models;
+﻿using CitiesData;
 using Microsoft.EntityFrameworkCore;
 
 namespace CitiesServer.Data
