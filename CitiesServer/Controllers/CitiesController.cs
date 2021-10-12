@@ -1,5 +1,6 @@
-﻿using CitiesServer.Data;
-using CitiesData;
+﻿using CitiesData;
+using CitiesServer.Data;
+using CitiesServer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,21 +42,28 @@ namespace CitiesServer.Controllers
 
         [HttpPost]
         [Produces("application/json")]
-        public City Post([FromBody] City city)
+        public void Post([FromBody] City city)
         {
-            return new City();
+            _context.Cities.Add(city);
+            _context.SaveChanges();
         }
 
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] City city)
         {
-
+            _context.Cities.Update(city);
+            _context.SaveChanges();
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-
+            var item = _context.Cities.FirstOrDefault(c => c.ID == id);
+            if(item != null)
+            {
+                _context.Cities.Remove(item);
+                _context.SaveChanges();
+            }
         }
     }
 }
