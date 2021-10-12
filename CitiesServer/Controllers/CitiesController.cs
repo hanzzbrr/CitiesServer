@@ -1,5 +1,4 @@
 ﻿using CitiesData;
-using CitiesServer.Data;
 using CitiesServer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
